@@ -1,0 +1,66 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-app>
+  <ion-split-pane when="sm" contentId="main-content">
+    <ion-menu contentId="main-content">
+      <ion-header [translucent]="true">
+        <ion-toolbar>
+          <ion-title>
+            Home
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-list>
+          <ion-list-header>
+            Navigate
+          </ion-list-header>
+          <ion-menu-toggle [autoHide]="false">
+            <ion-item button *ngFor="let todo of docRepo.documents$ | async">
+              <ion-icon slot="start" name='home'></ion-icon>
+              <ion-label>
+                {{ todo.title }}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-toggle>
+              <ion-button>
+                <ion-icon slot="icon-only" name="menu"></ion-icon>
+              </ion-button>
+            </ion-menu-toggle>
+          </ion-buttons>
+          <ion-title>Header</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <h1>Main Content</h1>
+        <div class="flex divided">
+          <ion-card *ngFor="let item of items; let i=index">
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </div>
+        </ion-content>
+    </div>
+  </ion-split-pane>
+</ion-app>
